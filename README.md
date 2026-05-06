@@ -65,4 +65,4 @@ LMS/
 ## 📧 Contact
 Your Name - Raj Birari - rajbirari.work@example.com
 
-Project Link: [https://github.com/rajvbiw/Learning-Management-System-LMS]  (https://github.com/rajvbiw/Learning-Management-System-LMS)
+Project Link: https://github.com/rajvbiw/Learning-Management-System-LMS
