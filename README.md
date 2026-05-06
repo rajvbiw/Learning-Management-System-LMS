@@ -23,72 +23,44 @@ Follow these steps to get the project up and running on your local machine.
 Ensure you have the following installed:
 - [Node.js](https://nodejs.org/) (v18 or higher)
 - [MySQL Server](https://dev.mysql.com/downloads/mysql/)
-- A code editor (like VS Code)
 
 ### 2. Database Setup
-1. Open your MySQL terminal or a tool like MySQL Workbench.
-2. Create a new database:
-   ```sql
-   CREATE DATABASE lms_db;
-   ```
-3. Import the initial schema:
+1. Create a new database: `CREATE DATABASE lms_db;`
+2. Import the initial schema:
    ```bash
    mysql -u your_username -p lms_db < schema.sql
    ```
-   *(Alternatively, copy the contents of `schema.sql` and run it in your SQL editor.)*
 
-### 3. Backend Configuration
-1. Navigate to the backend directory:
-   ```bash
-   cd backend
-   ```
-2. Install dependencies:
+### 3. Setup & Run
+1. Install root dependencies:
    ```bash
    npm install
    ```
-3. Configure Environment Variables:
-   - Open `.env` and update the following with your credentials:
-     ```env
-     DB_USER=root
-     DB_PASS=your_mysql_password
-     OPENAI_API_KEY=your_openai_api_key
-     ```
-4. Start the backend server:
+2. Configure Environment Variables:
+   - Copy `.env.example` to `.env` and update your credentials.
+3. Start both Frontend & Backend:
    ```bash
    npm run dev
    ```
-   The server should now be running at `http://localhost:5000`.
-
-### 4. Frontend Configuration
-1. Open a new terminal and navigate to the frontend directory:
-   ```bash
-   cd frontend
-   ```
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-3. Start the frontend application:
-   ```bash
-   npm run dev
-   ```
-4. Open your browser and go to the URL provided by Vite (usually `http://localhost:5173`).
+   - Frontend: `http://localhost:5173`
+   - Backend API: `http://localhost:5000`
 
 ## 📂 Project Structure
 ```text
 LMS/
-├── backend/           # Express server & Sequelize models
-│   ├── src/
-│   │   ├── config/    # Database configuration
-│   │   ├── models/    # Database models
-│   │   ├── controllers/# Business logic (Course, Quiz, AI, Student)
-│   │   └── routes/    # API endpoints
-├── frontend/          # React + Vite application
-│   ├── src/
-│   │   ├── components/# UI components (Navbar, CourseCard, AIModal)
-│   │   ├── pages/     # Views (Home, Dashboard, CourseDetail)
-│   │   └── services/  # API integration (Axios)
-└── schema.sql         # Full MySQL database schema
+├── server/            # Express server & Sequelize models
+│   ├── config/        # Database configuration
+│   ├── models/        # Database models
+│   ├── controllers/   # Business logic
+│   └── routes/        # API endpoints
+├── src/               # React frontend (Vite source)
+│   ├── components/    # UI components
+│   ├── pages/         # Views
+│   └── services/      # API integration
+├── public/            # Static assets
+├── package.json       # Unified dependencies
+├── vite.config.mjs    # Frontend build config with proxy
+└── schema.sql         # MySQL database schema
 ```
 
 ## 🤝 Contributing
